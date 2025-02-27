@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Aos Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="font-family: Playfair Display, serif;" class="bg-red-500">
+    <!-- Header -->
+    <!-- Navbar Container -->
+    <nav class="bg-red-500 p-4">
+        <!-- Desktop View -->
+        <div class="hidden md:flex justify-between items-center">
+            <!-- Logo/Website Icon -->
+            <div data-aos="zoom-in-" data-aos-duration="2000" class="bg-red-500 text-white text-center mr-4 text-lg font-semibold"><a class="hover:text-black"
+                    href="">
+                    The Telegram
+                </a></div>
+
+            <!-- Nav Links on Right -->
+            <div class=" text-white font-medium text-lg flex gap-6">
+                <a data-aos="zoom-in-down" data-aos-duration="1150" href="#" class="hover:text-black">NEWS</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1250" href="#" class="hover:text-black">OPINION</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1350"href="#" class="hover:text-black">POLITICS</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1450" href="#" class="hover:text-black">ENTERTAINMENT</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1550" href="#" class="hover:text-black">LIFESTYLE</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1650" href="#" class="hover:text-black">BUSINESS</a>
+                <a data-aos="zoom-in-down" data-aos-duration="1750" href="#" class="hover:text-black">SPORT</a>
+            </div>
+        </div>
+
+        <!-- Mobile View -->
+        <div class="flex justify-between items-center md:hidden">
+            <!-- Logo/Website Icon -->
+            <div data-aos="zoom-in-down" data-aos-duration="2000" class="  bg-red-500 text-white text-center text-lg font-semibold"><a class="hover:text-black" href="">
+                    The Telegram
+                </a></div>
+
+            <!-- Hamburger Icon -->
+            <button id="hamburger-icon" class="text-white text-2xl">
+                &#9776;
+            </button>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu"
+            class="bg-red-500 text-white text-center hidden md:hidden flex-col items-center gap-4 text-sm font-medium mt-4">
+            <a href="#" class="hover:text-black">NEWS</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">OPINION</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">POLITICS</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">ENTERTAINMENT</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">LIFESTYLE</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">BUSINESS</a>
+            <hr class="w-full border-t-1 border-white" />
+            <a href="#" class="hover:text-black">SPORT</a>
+        </div>
+    </nav>
+
+    <!-- JavaScript to Toggle Mobile Menu -->
+    <script>
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        hamburgerIcon.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+    <hr>
+<!-- Header Section -->
+<header class="bg-red-500 text-white p-6">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <!-- Responsive Image -->
+        <div data-aos="zoom-in-right" data-aos-duration="2000" class="w-full md:w-1/2">
+            <img src="Assets/HeaderImage.jpg" alt="News Image" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        
+        <!-- Headline & Text -->
+        <div data-aos="zoom-in-left" data-aos-duration="2000" class="w-full md:w-1/2 text-center md:text-left md:pl-6">
+            <h1 class="text-3xl font-bold">TELEGRAM’S PURSUIT</h1>
+            <p class="text-lg font-medium mt-2">
+                Bringing you the latest and most accurate news, our mission is to inform, educate, and inspire.
+                We strive to deliver unbiased journalism, covering world events, politics, business, and more
+                with integrity and professionalism.
+            </p>
+        </div>
+    </div>
+</header>
+
+<!-- JavaScript for Date and Time -->
+<script>
+    function updateDate() {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('en-US', options);
+        document.getElementById("current-date").textContent = today;
+    }
+    updateDate();
+</script>
+
+
+    <!-- JavaScript for Date and Time -->
+    <script>
+        function updateDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            document.getElementById("current-date").textContent = today;
+        }
+        updateDate();
+    </script>
+    <!-- Top Stories Section -->
+    <section data-aos="fade-up" data-aos-duration="2000"  class="bg-red-500 py-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-6">Top Stories</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Story Card 1 -->
+                <div class="bg-zinc-900 text-white p-4 rounded-lg shadow-lg">
+                    <img src="Assets/featuredNews.jpg" alt="News Image"
+                        class="w-full h-68 object-cover rounded-lg">
+                    <h3 class="text-xl font-semibold text-red-500 mt-4">Featured News</h3>
+                    <p class="text-sm mt-2">Mastery of Escoffier's mother sauces, perfect soufflés, and artisanal
+                        charcuterie.</p>
+                </div>
+
+                <!-- Story Card 2 -->
+                <div class="bg-zinc-900 text-white p-4 rounded-lg shadow-lg">
+                    <img src="Assets/Latestnews.jpg" alt="News Image"
+                        class="w-full h-58 object-cover rounded-lg">
+                    <h3 class="text-xl font-semibold text-red-500 mt-4">Latest News</h3>
+                    <p class="text-sm mt-2">Innovative spherification, edible cocktails, and liquid nitrogen desserts.
+                    </p>
+                </div>
+
+                <!-- Story Card 3 -->
+                <div class="bg-zinc-900 text-white p-4 rounded-lg shadow-lg">
+                    <img src="Assets/Editorial.jpg" alt="News Image"
+                        class="w-full h-68 object-cover rounded-lg">
+                    <h3 class="text-xl font-semibold text-red-500 mt-4">Editorial</h3>
+                    <p class="text-sm mt-2">Elevating vegetables through fermentation and innovative meat alternatives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Date and Time -->
+    <script>
+        function updateDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date().toLocaleDateString('en-US', options);
+            document.getElementById("current-date").textContent = today;
+        }
+        updateDate();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2">
+                <!-- Featured Article -->
+                <article data-aos="zoom-in-" data-aos-duration="2000"  class="mb-8">
+                    <h2 class="text-2xl text-white font-bold mb-4">Civil Society Organisations to Join Transformative Journey</h2>
+                    <div class="bg-zinc-900 p-6 shadow-sm rounded-lg">
+                        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+                            <iframe loading="lazy"
+                                style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                                src="https://www.canva.com/design/DAGgG-WQZNo/8lhYMahKkq-ST_LxjP-xxQ/watch?embed"
+                                allowfullscreen="allowfullscreen" allow="fullscreen">
+                            </iframe>
+                        </div>
+                        <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGgG-WQZNo&#x2F;8lhYMahKkq-ST_LxjP-xxQ&#x2F;watch?utm_content=DAGgG-WQZNo&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                            target="_blank" rel="noopener"></a> 
+                        <p class="text-gray-600 mb-4">TAPSOSA Applauds SIU Findings on Eskom's Controversial En</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span class="mr-4">● August 19, 2024</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">FEATURES</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <article class="bg-white p-4 shadow-sm rounded-lg">
+                        <h3 class="font-bold mb-2">Africa Has More People With HIV Than Any...</h3>
+                        <div class="text-sm text-gray-500">● October 18, 2025</div>
+                    </article>
+
+                    <article class="bg-white p-4 shadow-sm rounded-lg">
+                        <h3 class="font-bold mb-2">Why They Are So Afraid</h3>
+                        <div class="text-sm text-gray-500">● October 8, 2024</div>
+                        <span
+                            class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs mt-2 inline-block">OPINION</span>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Featured Story -->
+                <article class="bg-white p-6 shadow-sm rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl font-bold mr-3">12</span>
+                        <div>
+                            <h3 class="font-bold">YEARS</h3>
+                            <p class="text-sm text-gray-600">From Farmer to Visionary</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Craft Your Legacy of Wealth...</p>
+                    <div class="text-sm text-gray-500">● August 19, 2024</div>
+                </article>
+
+                <!-- Editor's Choice -->
+                <div class="bg-white p-6 shadow-sm rounded-lg">
+                    <h3 class="font-bold mb-4">EDITOR’S CHOICE</h3>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="p-2 border rounded">
+                            <div class="text-xs text-gray-500">OCTOBER</div>
+                            <div class="font-bold mt-1">R.Z.</div>
+                            <div class="text-xs text-gray-500">2024</div>
+                        </div>
+                        <!-- Repeat similar blocks -->
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="bg-white p-6 shadow-sm rounded-lg">
+                    <h3 class="font-bold mb-4">CATEGORIES</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block hover:text-blue-600">About</a>
+                        <a href="#" class="block hover:text-blue-600">Books</a>
+                        <a href="#" class="block hover:text-blue-600">Business</a>
+                        <a href="#" class="block hover:text-blue-600">Careers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center text-sm text-gray-400">
+                © 2024 Telegram News. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>
