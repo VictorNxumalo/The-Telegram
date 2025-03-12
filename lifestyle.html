@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lifestyle news and inspiration - The Telegram">
+    <title>Lifestyle - The Telegram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="font-family: Playfair Display, serif;">
+    <!-- Import your existing navbar here -->
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Main Nav -->
+            <div class="hidden md:flex justify-between items-center h-16">
+                <div data-aos="fade-right" data-aos-duration="1500"
+                    class="text-gray-800 text-xl font-bold tracking-tight">
+                    <a class="hover:text-red-800 transition-colors duration-300" href="index.html">
+                        The Telegram
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">HOME</a>
+                    <a href="news.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">NEWS</a>
+                    <a href="opinion.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">OPINION</a>
+                    <a href="politics.html" class="text-red-800 font-medium text-sm tracking-wider">POLITICS</a>
+                    <a href="entertainment.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">ENTERTAINMENT</a>
+                    <a href="lifestyle.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">LIFESTYLE</a>
+                    <button onclick="openSubscribeModal()"
+                        class="bg-red-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Main Nav -->
+            <div class="md:hidden">
+                <div class="flex justify-between items-center h-16">
+                    <a href="index.html" class="text-gray-800 text-lg font-bold">The Telegram</a>
+                    <button id="main-menu-btn" class="text-gray-800 hover:text-red-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Main Menu -->
+                <div id="main-menu" class="hidden pb-4">
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">HOME</a>
+                        <a href="news.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">NEWS</a>
+                        <a href="opinion.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">OPINION</a>
+                        <a href="politics.html" class="px-4 py-2 bg-red-50 text-red-800 rounded">POLITICS</a>
+                        <a href="entertainment.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">ENTERTAINMENT</a>
+                        <a href="lifestyle.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">LIFESTYLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Navigation -->
+    <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Section Nav -->
+            <div class="hidden md:flex justify-center space-x-8 py-4">
+                <a href="#featured"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Featured</a>
+                <a href="#latest" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Latest
+                    Updates</a>
+                <a href="#categories"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Categories</a>
+                <a href="#opinion"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Opinion</a>
+            </div>
+
+            <!-- Mobile Section Nav -->
+            <div class="md:hidden relative py-3">
+                <button id="section-menu-btn"
+                    class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-600">
+                    <span>Navigate Sections</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Section Menu -->
+                <div id="section-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg">
+                    <div class="flex flex-col p-2">
+                        <a href="#featured"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Featured</a>
+                        <a href="#latest"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Latest
+                            Updates</a>
+                        <a href="#categories"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Categories</a>
+                        <a href="#opinion"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Opinion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Main menu toggle
+        const mainMenuBtn = document.getElementById('main-menu-btn');
+        const mainMenu = document.getElementById('main-menu');
+
+        mainMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('hidden');
+        });
+
+        // Section menu toggle
+        const sectionMenuBtn = document.getElementById('section-menu-btn');
+        const sectionMenu = document.getElementById('section-menu');
+
+        sectionMenuBtn.addEventListener('click', () => {
+            sectionMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for section links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const yOffset = -120; // Adjust for fixed headers
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+
+                // Close mobile menus when clicking a section link
+                mainMenu.classList.add('hidden');
+                sectionMenu.classList.add('hidden');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let scrollPosition = window.scrollY + 122; // Adjust for fixed headers
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionLink = document.querySelector(`a[href="#${section.id}"]`);
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    sectionLink?.classList.add('text-red-800');
+                } else {
+                    sectionLink?.classList.remove('text-red-800');
+                }
+            });
+        });
+    </script>
+    <!-- Lifestyle Section Navigation -->
+    <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <div class="hidden md:flex justify-center space-x-8 py-4">
+                <a href="#trending"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Trending</a>
+                <a href="#wellness"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Wellness</a>
+                <a href="#food" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Food &
+                    Dining</a>
+                <a href="#travel"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Travel</a>
+                <a href="#fashion"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Fashion</a>
+                <a href="#home" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Home &
+                    Living</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Lifestyle Header -->
+    <header class="bg-gradient-to-r from-emerald-900 to-teal-800 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-5 pattern-grid-lg"></div>
+        <div class="container mx-auto px-4 py-16 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <span data-aos="fade-down" class="text-emerald-400 text-sm font-semibold tracking-wider">LIVING
+                    WELL</span>
+                <h1 data-aos="fade-up" class="text-5xl md:text-6xl font-bold mt-4 mb-6">Live Your Best Life</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-200">
+                    Discover wellness, style, and inspiration for everyday living
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Story Section -->
+    <section id="trending" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Main Feature -->
+                <div data-aos="fade-up" class="lg:col-span-2">
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1511647789090-82cf59694139?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                alt="Lifestyle Feature"
+                                class="w-full h-[400px] object-cover group-hover:scale-105 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 p-6 text-white">
+                                <span class="bg-emerald-800 text-white px-3 py-1 rounded-full text-sm">WELLNESS</span>
+                                <h2 class="text-3xl font-bold mt-4">Mindful Living: A Guide to Balance</h2>
+                                <p class="text-gray-200 mt-2">Discover how to create harmony in your daily routine...
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar Updates -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold border-l-4 border-emerald-800 pl-4">Latest Tips</h3>
+
+                    <!-- Update Card -->
+                    <div data-aos="fade-left" class="group">
+                        <article
+                            class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-emerald-800">
+                            <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+                                <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Healthy Living"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-duration-500">
+                            </div>
+                            <span class="text-emerald-800 text-sm font-semibold">HEALTH</span>
+                            <h3 class="font-bold mt-2 group-hover:text-emerald-800 transition-colors">Morning Routines
+                                That Work</h3>
+                            <p class="text-gray-600 text-sm mt-2">Start your day right with these proven techniques...
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Categories -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-12 text-center">Explore Lifestyle</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Wellness -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Wellness"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-spa text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Wellness</h3>
+                    <p class="text-sm text-gray-600 mt-2">Mind, body, and soul</p>
+                </a>
+
+                <!-- Food & Dining -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Food & Dining"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-utensils text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Food & Dining</h3>
+                    <p class="text-sm text-gray-600 mt-2">Culinary adventures</p>
+                </a>
+
+                <!-- Travel -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Travel"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-plane-departure text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Travel</h3>
+                    <p class="text-sm text-gray-600 mt-2">Explore the world</p>
+                </a>
+
+                <!-- Fashion -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Fashion"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-tshirt text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Fashion</h3>
+                    <p class="text-sm text-gray-600 mt-2">Style & trends</p>
+                </a>
+
+                <!-- Home & Living -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Home & Living"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-home text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Home & Living</h3>
+                    <p class="text-sm text-gray-600 mt-2">Create your space</p>
+                </a>
+
+                <!-- Relationships -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Relationships"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-heart text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Relationships</h3>
+                    <p class="text-sm text-gray-600 mt-2">Connection & growth</p>
+                </a>
+
+                <!-- Sustainability -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Sustainability"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-leaf text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Sustainability</h3>
+                    <p class="text-sm text-gray-600 mt-2">Eco-friendly living</p>
+                </a>
+
+                <!-- Personal Finance -->
+                <a href="#" class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all text-center group">
+                    <div class="relative h-40 mb-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                            alt="Personal Finance"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                    </div>
+                    <i class="fas fa-wallet text-3xl text-emerald-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-emerald-800 transition-colors">Personal Finance</h3>
+                    <p class="text-sm text-gray-600 mt-2">Smart money habits</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle-focused Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+                <!-- About Lifestyle -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-emerald-800 pl-4">Lifestyle</h4>
+                    <p class="text-gray-400">Your guide to living well, from wellness to style and beyond.</p>
+                    <div class="flex items-center gap-4 text-sm">
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-heart text-emerald-800"></i>
+                            Daily Inspiration
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-star text-emerald-800"></i>
+                            Expert Tips
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-emerald-800 pl-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#wellness" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-emerald-800"></i>
+                                Wellness Guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#food" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-emerald-800"></i>
+                                Food & Recipes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#travel" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-emerald-800"></i>
+                                Travel Tips
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-emerald-800 pl-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-book text-emerald-800"></i>
+                                Lifestyle Guides
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-calendar text-emerald-800"></i>
+                                Event Calendar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-emerald-800 pl-4">Stay Inspired</h4>
+                    <p class="text-gray-400">Get weekly lifestyle tips and inspiration.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Your email address"
+                            class="w-full bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-emerald-800 transition-colors text-white">
+                        <button
+                            class="w-full bg-emerald-800 hover:bg-emerald-700 text-white py-2 rounded-lg transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+                <p>© 2024 The Telegram - Lifestyle Section. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        // Add navigation toggle scripts here
+    </script>
+</body>
+
+</html>

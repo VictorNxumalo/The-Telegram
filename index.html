@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telegram News - Bringing you the latest and most accurate news.">
+    <meta name="keywords" content="news, magazine, politics, business, entertainment, lifestyle, sports">
+    <meta name="author" content="Telegram News">
+    <title>Telegram News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Aos Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="font-family: Playfair Display, serif;">
+    <!-- Import your existing navbar here -->
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Main Nav -->
+            <div class="hidden md:flex justify-between items-center h-16">
+                <div data-aos="fade-right" data-aos-duration="1500"
+                    class="text-gray-800 text-xl font-bold tracking-tight">
+                    <a class="hover:text-red-800 transition-colors duration-300" href="HomePage.html">
+                        The Telegram
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="homePage.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">HOME</a>
+                    <a href="news.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">NEWS</a>
+                    <a href="opinion.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">OPINION</a>
+                    <a href="politics.html" class="text-red-800 font-medium text-sm tracking-wider">POLITICS</a>
+                    <a href="entertainment.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">ENTERTAINMENT</a>
+                    <a href="lifestyle.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">LIFESTYLE</a>
+                    <button onclick="openSubscribeModal()"
+                        class="bg-red-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                    <!-- Add this modal structure just before the closing body tag -->
+                    <div id="subscribeModal"
+                        class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+                        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+                            <!-- Modal Header -->
+                            <div class="bg-gradient-to-r from-red-800 to-red-900 p-6 text-white relative">
+                                <button onclick="closeSubscribeModal()"
+                                    class="absolute top-4 right-4 text-white/80 hover:text-white">
+                                    <i class="fas fa-times text-xl"></i>
+                                </button>
+                                <h2 class="text-2xl font-bold">Subscribe to The Telegram</h2>
+                                <p class="text-sm text-red-100 mt-1">Get unlimited access to premium content</p>
+
+                                <!-- Progress Steps -->
+                                <div class="flex justify-between items-center mt-6  mb-4">
+                                    <div class="flex items-center w-full">
+                                        <div class="flex items-center text-teal-500 relative">
+                                            <div id="step1-circle"
+                                                class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 bg-white text-center text-red-800 font-bold">
+                                                1
+                                            </div>
+                                            <div
+                                                class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium text-white">
+                                                Plan Selection</div>
+                                        </div>
+                                        <div class="flex-auto border-t-2 transition duration-500 ease-in-out"></div>
+                                        <div class="flex items-center text-white relative">
+                                            <div id="step2-circle"
+                                                class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-white text-center text-white font-bold">
+                                                2
+                                            </div>
+                                            <div
+                                                class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium text-white">
+                                                Account Details</div>
+                                        </div>
+                                        <div class="flex-auto border-t-2 transition duration-500 ease-in-out"></div>
+                                        <div class="flex items-center text-white relative">
+                                            <div id="step3-circle"
+                                                class="rounded-full transition duration-500 ease-in-out h-12 w-12 py-3 border-2 border-white text-center text-white font-bold">
+                                                3
+                                            </div>
+                                            <div
+                                                class="absolute top-0 -ml-10 text-center mt-16 w-32 text-xs font-medium text-white">
+                                                Payment</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal Content -->
+                            <div class="p-6">
+                                <!-- Step 1: Plan Selection -->
+                                <div id="step1" class="transition-opacity duration-300">
+                                    <h3 class="text-xl font-bold mb-4">Choose Your Plan</h3>
+                                    <div class="space-y-4">
+                                        <div
+                                            class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-red-800 transition-colors">
+                                            <div class="flex justify-between items-center">
+                                                <div>
+                                                    <h4 class="font-bold">Monthly Plan</h4>
+                                                    <p class="text-sm text-gray-600">Perfect for regular readers</p>
+                                                </div>
+                                                <div class="text-right">
+                                                    <div class="text-xl font-bold text-red-800">$9.99</div>
+                                                    <div class="text-sm text-gray-500">/month</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-red-800 transition-colors">
+                                            <div class="flex justify-between items-center">
+                                                <div>
+                                                    <h4 class="font-bold">Annual Plan</h4>
+                                                    <p class="text-sm text-gray-600">Best value for committed readers
+                                                    </p>
+                                                    <span class="text-xs text-red-800 font-semibold">Save 20%</span>
+                                                </div>
+                                                <div class="text-right">
+                                                    <div class="text-xl font-bold text-red-800">$95.88</div>
+                                                    <div class="text-sm text-gray-500">/year</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Account Details -->
+                                <div id="step2" class="hidden transition-opacity duration-300">
+                                    <h3 class="text-xl font-bold mb-4">Create Your Account</h3>
+                                    <form class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Full
+                                                Name</label>
+                                            <input type="text"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Email
+                                                Address</label>
+                                            <input type="email"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                                            <input type="password"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800">
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Step 3: Payment -->
+                                <div id="step3" class="hidden transition-opacity duration-300">
+                                    <h3 class="text-xl font-bold mb-4">Payment Details</h3>
+                                    <form class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Card
+                                                Number</label>
+                                            <input type="text"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800"
+                                                placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">Expiry
+                                                    Date</label>
+                                                <input type="text"
+                                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800"
+                                                    placeholder="MM/YY">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                                                <input type="text"
+                                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-800"
+                                                    placeholder="123">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <div class="flex justify-between mt-8">
+                                    <button onclick="previousStep()" id="prevBtn"
+                                        class="px-6 py-2 border-2 border-red-800 text-red-800 rounded-lg hover:bg-red-800 hover:text-white transition-colors hidden">
+                                        Previous
+                                    </button>
+                                    <button onclick="nextStep()" id="nextBtn"
+                                        class="px-6 py-2 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors ml-auto">
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add this script -->
+                    <script>
+                        let currentStep = 1;
+                        const totalSteps = 3;
+
+                        function openSubscribeModal() {
+                            document.getElementById('subscribeModal').classList.remove('hidden');
+                            document.body.style.overflow = 'hidden';
+                        }
+
+                        function closeSubscribeModal() {
+                            document.getElementById('subscribeModal').classList.add('hidden');
+                            document.body.style.overflow = 'auto';
+                            resetSteps();
+                        }
+
+                        function resetSteps() {
+                            currentStep = 1;
+                            updateStepDisplay();
+                        }
+
+                        function nextStep() {
+                            if (currentStep < totalSteps) {
+                                currentStep++;
+                                updateStepDisplay();
+                            } else {
+                                // Handle subscription completion
+                                alert('Subscription completed! Thank you for subscribing.');
+                                closeSubscribeModal();
+                            }
+                        }
+
+                        function previousStep() {
+                            if (currentStep > 1) {
+                                currentStep--;
+                                updateStepDisplay();
+                            }
+                        }
+
+                        function updateStepDisplay() {
+                            // Hide all steps
+                            for (let i = 1; i <= totalSteps; i++) {
+                                document.getElementById(`step${i}`).classList.add('hidden');
+                                document.getElementById(`step${i}-circle`).classList.remove('bg-white', 'text-red-800');
+                                document.getElementById(`step${i}-circle`).classList.add('text-white');
+                            }
+
+                            // Show current step
+                            document.getElementById(`step${currentStep}`).classList.remove('hidden');
+                            document.getElementById(`step${currentStep}-circle`).classList.add('bg-white', 'text-red-800');
+
+                            // Update buttons
+                            document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
+                            document.getElementById('nextBtn').textContent = currentStep === totalSteps ? 'Complete' : 'Next';
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <!-- Mobile Main Nav -->
+            <div class="md:hidden">
+                <div class="flex justify-between items-center h-16">
+                    <a href="HomePage.html" class="text-gray-800 text-lg font-bold">The Telegram</a>
+                    <button id="main-menu-btn" class="text-gray-800 hover:text-red-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Main Menu -->
+                <div id="main-menu" class="hidden pb-4">
+                    <div class="flex flex-col space-y-2">
+                        <a href="homePage.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">HOME</a>
+                        <a href="news.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">NEWS</a>
+                        <a href="opinion.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">OPINION</a>
+                        <a href="politics.html" class="px-4 py-2 bg-red-50 text-red-800 rounded">POLITICS</a>
+                        <a href="entertainment.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">ENTERTAINMENT</a>
+                        <a href="lifestyle.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">LIFESTYLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Navigation -->
+    <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Section Nav -->
+            <div class="hidden md:flex justify-center space-x-8 py-4">
+                <a href="#featured"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Featured</a>
+                <a href="#latest" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Latest
+                    Updates</a>
+                <a href="#categories"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Categories</a>
+                <a href="#opinion"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Opinion</a>
+            </div>
+
+            <!-- Mobile Section Nav -->
+            <div class="md:hidden relative py-3">
+                <button id="section-menu-btn"
+                    class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-600">
+                    <span>Navigate Sections</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Section Menu -->
+                <div id="section-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg">
+                    <div class="flex flex-col p-2">
+                        <a href="#featured"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Featured</a>
+                        <a href="#latest"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Latest
+                            Updates</a>
+                        <a href="#categories"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Categories</a>
+                        <a href="#opinion"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Opinion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Main menu toggle
+        const mainMenuBtn = document.getElementById('main-menu-btn');
+        const mainMenu = document.getElementById('main-menu');
+
+        mainMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('hidden');
+        });
+
+        // Section menu toggle
+        const sectionMenuBtn = document.getElementById('section-menu-btn');
+        const sectionMenu = document.getElementById('section-menu');
+
+        sectionMenuBtn.addEventListener('click', () => {
+            sectionMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for section links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const yOffset = -120; // Adjust for fixed headers
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+
+                // Close mobile menus when clicking a section link
+                mainMenu.classList.add('hidden');
+                sectionMenu.classList.add('hidden');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let scrollPosition = window.scrollY + 122; // Adjust for fixed headers
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionLink = document.querySelector(`a[href="#${section.id}"]`);
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    sectionLink?.classList.add('text-red-800');
+                } else {
+                    sectionLink?.classList.remove('text-red-800');
+                }
+            });
+        });
+    </script>
+    <hr>
+    <header class="bg-white text-gray-800 p-6 relative overflow-hidden">
+        <!-- JavaScript for Date and Time -->
+        <div class="flex text-center items-center text-md text-gray-600">
+            <i class="far fa-calendar-alt mr-2"></i>
+            <span id="current-date"></span>
+            <span class="mx-2">•</span>
+            <i class="far fa-clock mr-2"></i>
+            <span id="current-time"></span>
+        </div>
+        <!-- Main Content Container -->
+        <div class="container mx-auto relative min-h-[500px] flex items-center justify-between">
+            <!-- Left Column - Main Headline -->
+            <div class="w-full md:w-1/2 pr-8">
+                <div data-aos="fade-right" data-aos-duration="1500" class="space-y-8">
+                    <div class="space-y-2">
+                        <span class="text-red-800 text-sm font-semibold tracking-wider">BREAKING BARRIERS</span>
+                        <h1 class="text-4xl md:text-6xl font-black leading-tight">
+                            <span
+                                class="block transform hover:translate-x-2 transition-transform duration-300">TELEGRAM'S</span>
+                            <span
+                                class="block text-red-800 transform hover:translate-x-2 transition-transform duration-300">PURSUIT</span>
+                        </h1>
+                    </div>
+                    <p
+                        class="text-lg md:text-xl font-medium leading-relaxed text-gray-600 border-l-4 border-red-800 pl-4">
+                        Bringing you the latest and most accurate news with unparalleled depth and insight.
+                    </p>
+                    <div class="flex gap-4">
+                        <button
+                            class="bg-red-800 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Latest Stories
+                        </button>
+                        <button onclick="openSubscribeModal()"
+                            class="bg-gray-50 text-red-800 px-8 py-3 rounded-lg font-bold border-2 border-red-800 hover:bg-red-800 hover:text-white transition-all duration-300">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Featured Image -->
+            <div class="hidden md:block w-1/2 relative">
+                <div data-aos="fade-left" data-aos-duration="1500" class="relative">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-20 -right-20 w-72 h-72 bg-red-100 rounded-full opacity-50 animate-pulse">
+                    </div>
+                    <div class="absolute -left-10 -top-10 w-40 h-40 bg-gray-100 rounded-full opacity-50"></div>
+
+                    <!-- Main Image -->
+                    <img src="Assets/HeaderImage.jpg" alt="Featured News"
+                        class="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500 relative z-10 border-8 border-white">
+
+                    <!-- Image Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-red-800/10 to-transparent rounded-lg z-20">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Stats -->
+            <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-6">
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="bg-white shadow-lg px-6 py-3 rounded-lg flex items-center gap-3 border-l-4 border-red-800">
+                    <span class="text-red-800 font-bold text-xl">24/7</span>
+                    <span class="text-gray-600">Live Updates</span>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400"
+                    class="bg-white shadow-lg px-6 py-3 rounded-lg flex items-center gap-3 border-l-4 border-red-800">
+                    <span class="text-red-800 font-bold text-xl">150+</span>
+                    <span class="text-gray-600">Countries Reached</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Top Stories Section -->
+    <section class="bg-gradient-to-b from-white to-gray-50 py-16 relative overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 opacity-5 pattern-grid-lg"></div>
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-800 via-red-500 to-red-800"></div>
+
+        <div class="container mx-auto px-4 relative">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-red-800 text-sm font-semibold tracking-wider">WHAT'S TRENDING</span>
+                <h2 class="text-4xl font-bold text-gray-800 mt-2">Top Stories</h2>
+                <div class="w-24 h-1 bg-red-800 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Stories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Story Card 1 -->
+                <div data-aos="fade-up" data-aos-duration="1000"
+                    class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="Assets/featuredNews.jpg" alt="Featured News Image"
+                            class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-red-800 text-white text-xs px-3 py-1 rounded-full">
+                            FEATURED
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                <i class="fas fa-newspaper text-red-800"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-bold text-gray-800 group-hover:text-red-800 transition-colors">
+                                    Featured News
+                                </h3>
+                                <p class="text-xs text-gray-500">3 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Mastery of Escoffier's mother sauces, perfect soufflés, and artisanal charcuterie.
+                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-eye mr-2"></i>
+                                <span>2.4k views</span>
+                            </div>
+                            <button onclick="openStoryModal()" class="text-red-800 hover:text-red-600 flex items-center text-sm font-medium">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Story Card 2-->
+                <div data-aos="fade-up" data-aos-duration="1000"
+                    class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="Assets/featuredNews.jpg" alt="Featured News Image"
+                            class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-red-800 text-white text-xs px-3 py-1 rounded-full">
+                            FEATURED
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                <i class="fas fa-newspaper text-red-800"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-bold text-gray-800 group-hover:text-red-800 transition-colors">
+                                    Featured News
+                                </h3>
+                                <p class="text-xs text-gray-500">3 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Mastery of Escoffier's mother sauces, perfect soufflés, and artisanal charcuterie.
+                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-eye mr-2"></i>
+                                <span>2.4k views</span>
+                            </div>
+                            <button class="text-red-800 hover:text-red-600 flex items-center text-sm font-medium">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Story Card 1 -->
+                <div data-aos="fade-up" data-aos-duration="1000"
+                    class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    <div class="relative overflow-hidden">
+                        <img src="Assets/featuredNews.jpg" alt="Featured News Image"
+                            class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-red-800 text-white text-xs px-3 py-1 rounded-full">
+                            FEATURED
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                                <i class="fas fa-newspaper text-red-800"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="font-bold text-gray-800 group-hover:text-red-800 transition-colors">
+                                    Featured News
+                                </h3>
+                                <p class="text-xs text-gray-500">3 hours ago</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Mastery of Escoffier's mother sauces, perfect soufflés, and artisanal charcuterie.
+                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="far fa-eye mr-2"></i>
+                                <span>2.4k views</span>
+                            </div>
+                            <button class="text-red-800 hover:text-red-600 flex items-center text-sm font-medium">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Card 2 & 3: Similar structure with different content -->
+                <!-- ... Copy the structure above and modify content ... -->
+            </div>
+
+            <!-- Bottom Stats Bar -->
+            <div class="mt-12 flex justify-center gap-8">
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="bg-white px-6 py-3 rounded-lg shadow-md flex items-center space-x-4 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+                        <i class="fas fa-clock text-red-800 text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-red-800">24/7</div>
+                        <div class="text-sm text-gray-500">Live Updates</div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="bg-white px-6 py-3 rounded-lg shadow-md flex items-center space-x-4 hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+                        <i class="fas fa-globe text-red-800 text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold text-red-800">150+</div>
+                        <div class="text-sm text-gray-500">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this to your head section for the pattern -->
+    <style>
+        .pattern-grid-lg {
+            background-image: linear-gradient(currentColor 1px, transparent 1px),
+                linear-gradient(to right, currentColor 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+    </style>
+
+    <!-- Replace the existing script with this enhanced version -->
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            // Date formatting
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+
+            // Time formatting
+            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+
+            // Update DOM
+            document.getElementById("current-date").textContent = formattedDate;
+            document.getElementById("current-time").textContent = formattedTime;
+        }
+
+        // Update immediately and then every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+    <main class="bg-gradient-to-b from-gray-50 to-white py-12">
+        <!-- Subtle pattern overlay -->
+        <div class="absolute inset-0 opacity-5 pattern-grid-lg"></div>
+
+        <div class="container mx-auto px-4">
+            <!-- Featured Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content Column -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Featured Article -->
+                    <article data-aos="fade-up" data-aos-duration="1000"
+                        class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                        <!-- Article Header -->
+                        <div class="relative">
+                            <img src="Assets/featuredNews.jpg" alt="Featured News"
+                                class="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent">
+                            </div>
+
+                            <!-- Overlay Content -->
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <span class="bg-red-800 px-3 py-1 rounded-full text-xs font-semibold">BREAKING
+                                        NEWS</span>
+                                    <span class="text-sm opacity-75">● 3 hours ago</span>
+                                </div>
+                                <h2 class="text-3xl font-bold mb-3 group-hover:text-red-400 transition-colors">
+                                    Civil Society Organisations to Join Transformative Journey
+                                </h2>
+                            </div>
+                        </div>
+
+                        <!-- Article Content -->
+                        <div class="p-6">
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                TAPSOSA Applauds SIU Findings on Eskom's Controversial Environmental Impact...
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <img src="Assets/Author/nazanin-mousavi-572zAZSf7dM-unsplash.jpg" alt="Author"
+                                        class="w-12 h-12 object-cover rounded-full rounded-full border-2 border-red-800 ">
+                                    <div>
+                                        <div class="font-semibold text-gray-800">John Doe</div>
+                                        <div class="text-sm text-gray-500">Senior Editor</div>
+                                    </div>
+                                </div>
+                                <button class="flex items-center gap-2 text-red-800 font-medium group">
+                                    Read Full Story
+                                    <i
+                                        class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Recent News Grid -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- News Card -->
+                        <article
+                            class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-red-800">
+                            <span class="text-xs font-semibold text-red-800">HEALTH</span>
+                            <h3 class="font-bold text-xl mt-2 mb-3 hover:text-red-800 transition-colors">
+                                Africa Has More People With HIV Than Any...
+                            </h3>
+                            <div class="flex items-center justify-between text-sm text-gray-500">
+                                <span>October 18, 2025</span>
+                                <span class="flex items-center gap-2">
+                                    <i class="far fa-eye"></i>
+                                    2.4k views
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- Repeat for other news items -->
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <!-- Featured Story -->
+                    <article class="bg-gradient-to-br from-red-800 to-red-900 text-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-3xl font-bold">
+                                12
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">YEARS</h3>
+                                <p class="text-red-200">From Farmer to Visionary</p>
+                            </div>
+                        </div>
+                        <p class="text-red-100 mb-4">Craft Your Legacy of Wealth...</p>
+                        <button class="w-full bg-white/10 hover:bg-white/20 py-2 rounded-lg transition-colors">
+                            Read More
+                        </button>
+                    </article>
+
+                    <!-- Editor's Choice -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="font-bold text-xl mb-6 flex items-center gap-2">
+                            <i class="fas fa-star text-red-800"></i>
+                            EDITOR'S CHOICE
+                        </h3>
+                        <div class="space-y-4">
+                            <!-- Editor's Pick Item -->
+                            <div class="flex items-start gap-4 group cursor-pointer">
+                                <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="Assets/news-thumb-1.jpg" alt="News Thumbnail"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold group-hover:text-red-800 transition-colors">
+                                        The Future of Sustainable Energy
+                                    </h4>
+                                    <p class="text-sm text-gray-500">October 15, 2024</p>
+                                </div>
+                            </div>
+                            <!-- Repeat for other picks -->
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h3 class="font-bold text-xl mb-6">CATEGORIES</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="#"
+                                class="flex items-center gap-2 p-3 rounded-lg hover:bg-red-50 group transition-colors">
+                                <i class="fas fa-book text-red-800"></i>
+                                <span class="group-hover:text-red-800">Books</span>
+                                <span class="ml-auto text-sm text-gray-500">24</span>
+                            </a>
+                            <!-- Repeat for other categories -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gradient-to-b from-gray-900 to-gray-800 text-white mt-12 relative overflow-hidden">
+        <!-- Subtle Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5 pattern-grid-lg"></div>
+
+        <!-- Contact Section -->
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                <!-- Contact Form -->
+                <div data-aos="fade-right" class="bg-white/5 backdrop-blur-sm p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">Share Your Story</h3>
+                    <p class="text-gray-400 mb-6">Have a compelling story? We'd love to hear from you.</p>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Your Name"
+                                class="bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-gray-300">
+                            <input type="email" placeholder="Your Email"
+                                class="bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-gray-300">
+                        </div>
+                        <input type="text" placeholder="Story Title"
+                            class="w-full bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-gray-300">
+                        <textarea rows="4" placeholder="Tell us about your story..."
+                            class="w-full bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-gray-300"></textarea>
+                        <button class="bg-red-800 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Submit Story
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div data-aos="fade-left" class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-red-800/20 flex items-center justify-center">
+                                    <i class="fas fa-envelope text-red-800"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Email us at</p>
+                                    <p class="text-white">stories@thetelegram.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-red-800/20 flex items-center justify-center">
+                                    <i class="fas fa-phone text-red-800"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Call us at</p>
+                                    <p class="text-white">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Signup -->
+                    <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-4">Subscribe to Our Newsletter</h4>
+                        <div class="flex gap-2">
+                            <input type="email" placeholder="Enter your email"
+                                class="flex-1 bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-gray-300">
+                            <button
+                                class="bg-red-800 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 pt-8">
+                <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <!-- Company Info -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-lg">The Telegram</h4>
+                        <p class="text-gray-400 text-sm">Bringing you the latest and most accurate news with
+                            unparalleled depth and insight.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-lg">Quick Links</h4>
+                        <div class="space-y-2">
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">About Us</a>
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">Careers</a>
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">Advertise</a>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-lg">Categories</h4>
+                        <div class="space-y-2">
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">Politics</a>
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">Business</a>
+                            <a href="#" class="block text-gray-400 hover:text-white transition-colors">Technology</a>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-lg">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="https://facebook.com"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-800 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-800 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-800 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-center text-sm text-gray-400 border-t border-gray-700 pt-8">
+                    <p>© 2024 The Telegram News. All rights reserved.</p>
+                    <div class="mt-2 space-x-4">
+                        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

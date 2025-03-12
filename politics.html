@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Political news and analysis - The Telegram">
+    <title>Politics - The Telegram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="text-gray-800 p-6 relative" style=" font-family: Playfair Display, serif;">
+    <!-- Import your existing navbar here -->
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Main Nav -->
+            <div class="hidden md:flex justify-between items-center h-16">
+                <div data-aos="fade-right" data-aos-duration="1500"
+                    class="text-gray-800 text-xl font-bold tracking-tight">
+                    <a class="hover:text-red-800 transition-colors duration-300" href="index.html">
+                        The Telegram
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">HOME</a>
+                    <a href="news.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">NEWS</a>
+                    <a href="opinion.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">OPINION</a>
+                    <a href="politics.html" class="text-red-800 font-medium text-sm tracking-wider">POLITICS</a>
+                    <a href="entertainment.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">ENTERTAINMENT</a>
+                    <a href="lifestyle.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">LIFESTYLE</a>
+                    <button onclick="openSubscribeModal()"
+                        class="bg-red-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Main Nav -->
+            <div class="md:hidden">
+                <div class="flex justify-between items-center h-16">
+                    <a href="index.html" class="text-gray-800 text-lg font-bold">The Telegram</a>
+                    <button id="main-menu-btn" class="text-gray-800 hover:text-red-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Main Menu -->
+                <div id="main-menu" class="hidden pb-4">
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">HOME</a>
+                        <a href="news.html" 
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">NEWS</a>
+                        <a href="opinion.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">OPINION</a>
+                        <a href="politics.html" class="px-4 py-2 bg-red-50 text-red-800 rounded">POLITICS</a>
+                        <a href="entertainment.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">ENTERTAINMENT</a>
+                        <a href="lifestyle.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">LIFESTYLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Navigation -->
+    <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Section Nav -->
+            <div class="hidden md:flex justify-center space-x-8 py-4">
+                <a href="#featured"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Featured</a>
+                <a href="#latest" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Latest
+                    Updates</a>
+                <a href="#categories"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Categories</a>
+                <a href="#opinion"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Opinion</a>
+            </div>
+
+            <!-- Mobile Section Nav -->
+            <div class="md:hidden relative py-3">
+                <button id="section-menu-btn"
+                    class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-600">
+                    <span>Navigate Sections</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Section Menu -->
+                <div id="section-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg">
+                    <div class="flex flex-col p-2">
+                        <a href="#featured"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Featured</a>
+                        <a href="#latest"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Latest
+                            Updates</a>
+                        <a href="#categories"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Categories</a>
+                        <a href="#opinion"
+                            class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Opinion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        // Main menu toggle
+        const mainMenuBtn = document.getElementById('main-menu-btn');
+        const mainMenu = document.getElementById('main-menu');
+
+        mainMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('hidden');
+        });
+
+        // Section menu toggle
+        const sectionMenuBtn = document.getElementById('section-menu-btn');
+        const sectionMenu = document.getElementById('section-menu');
+
+        sectionMenuBtn.addEventListener('click', () => {
+            sectionMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for section links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const yOffset = -120; // Adjust for fixed headers
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+
+                // Close mobile menus when clicking a section link
+                mainMenu.classList.add('hidden');
+                sectionMenu.classList.add('hidden');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let scrollPosition = window.scrollY + 122; // Adjust for fixed headers
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionLink = document.querySelector(`a[href="#${section.id}"]`);
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    sectionLink?.classList.add('text-red-800');
+                } else {
+                    sectionLink?.classList.remove('text-red-800');
+                }
+            });
+        });
+    </script>
+
+    <!-- Politics Header -->
+    <header class=" bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-red-800 opacity-5 pattern-grid-lg"></div>
+
+        <div class="container mx-auto px-4 py-16 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <span data-aos="fade-down" class="text-red-500 text-sm font-semibold tracking-wider">POLITICAL
+                    COVERAGE</span>
+                <h1 data-aos="fade-up" class="text-5xl md:text-6xl font-bold mt-4 mb-6">Politics & Power</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-300">
+                    In-depth analysis and breaking news from the world of politics
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Political Stories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured Story -->
+                <div data-aos="fade-up" class="lg:col-span-2">
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                        <div class="relative">
+                            <img src="Assets/politicsImages/matthew-tenbruggencate-0HJWobhGhJs-unsplash.jpg"
+                                alt="Political News"
+                                class="w-full h-[400px] object-cover group-hover:scale-105 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 p-6 text-white">
+                                <span class="bg-red-800 text-white px-3 py-1 rounded-full text-sm">BREAKING</span>
+                                <h2 class="text-3xl font-bold mt-4">Major Policy Shift Announced in Parliament</h2>
+                                <p class="text-gray-200 mt-2">Latest developments from the parliamentary session...</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar Stories -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold border-l-4 border-red-800 pl-4">Latest Updates</h3>
+
+                    <!-- Story Card -->
+                    <div data-aos="fade-left" class="group">
+                        <article
+                            class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-red-800">
+                            <span class="text-red-800 text-sm font-semibold">POLICY</span>
+                            <h3 class="font-bold mt-2 group-hover:text-red-800 transition-colors">New Economic Measures
+                                Unveiled</h3>
+                            <p class="text-gray-600 text-sm mt-2">Government announces comprehensive economic package...
+                            </p>
+                            <div class="flex items-center justify-between mt-4 text-sm text-gray-500">
+                                <span>2 hours ago</span>
+                                <span class="flex items-center gap-2">
+                                    <i class="far fa-eye"></i>
+                                    1.2k views
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Repeat similar story cards -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">Political Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- National Politics -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-landmark text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">National Politics</h3>
+                    <p class="text-sm text-gray-600 mt-2">Parliament, legislation, and national governance</p>
+                </a>
+
+                <!-- International Relations -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-globe-africa text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">International</h3>
+                    <p class="text-sm text-gray-600 mt-2">Global politics and foreign relations</p>
+                </a>
+
+                <!-- Local Government -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-city text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Local Government</h3>
+                    <p class="text-sm text-gray-600 mt-2">Municipal and provincial politics</p>
+                </a>
+
+                <!-- Elections -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-vote-yea text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Elections</h3>
+                    <p class="text-sm text-gray-600 mt-2">Electoral news and campaign coverage</p>
+                </a>
+
+                <!-- Policy & Legislation -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-gavel text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Policy</h3>
+                    <p class="text-sm text-gray-600 mt-2">Laws, regulations, and policy analysis</p>
+                </a>
+
+                <!-- Political Economy -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-chart-line text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Economy</h3>
+                    <p class="text-sm text-gray-600 mt-2">Economic policy and financial politics</p>
+                </a>
+
+                <!-- Political Parties -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-users text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Political Parties</h3>
+                    <p class="text-sm text-gray-600 mt-2">Party news and developments</p>
+                </a>
+
+                <!-- Political Analysis -->
+                <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                    <i class="fas fa-microscope text-3xl text-red-800 mb-4"></i>
+                    <h3 class="font-bold group-hover:text-red-800 transition-colors">Analysis</h3>
+                    <p class="text-sm text-gray-600 mt-2">In-depth political analysis</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="opinion" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-red-800 text-sm font-semibold tracking-wider">EXPERT INSIGHTS</span>
+                <h2 class="text-3xl font-bold text-gray-800 mt-2">Political Analysis & Opinion</h2>
+                <div class="w-24 h-1 bg-red-800 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Opinion Articles Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Opinion Card 1 -->
+                <article data-aos="fade-up" data-aos-delay="100"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Economic Policy" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-800 text-white px-3 py-1 rounded-full text-xs">ECONOMY</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-red-800 transition-colors">
+                            The Economic Impact of Recent Political Decisions
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            An in-depth analysis of how recent political decisions are shaping our economic landscape...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                                    alt="Author" class="w-10 h-10 object-cover rounded-full border-2 border-red-800">
+                                <div>
+                                    <h4 class="font-semibold text-sm">Dr. Sarah Johnson</h4>
+                                    <p class="text-gray-500 text-xs">Economic Analyst</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-500">Mar 12, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Opinion Card 2 -->
+                <article data-aos="fade-up" data-aos-delay="200"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Foreign Policy" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-800 text-white px-3 py-1 rounded-full text-xs">FOREIGN POLICY</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-red-800 transition-colors">
+                            Shifting Global Alliances: A New World Order
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            Examining the changing dynamics of international relations and their implications...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                                    alt="Author" class="w-10 h-10 object-cover rounded-full border-2 border-red-800">
+                                <div>
+                                    <h4 class="font-semibold text-sm">Prof. Michael Chang</h4>
+                                    <p class="text-gray-500 text-xs">Foreign Policy Expert</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-500">Mar 11, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Opinion Card 3 -->
+                <article data-aos="fade-up" data-aos-delay="300"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Social Policy" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-800 text-white px-3 py-1 rounded-full text-xs">SOCIAL POLICY</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-red-800 transition-colors">
+                            The Future of Social Welfare Programs
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            A critical analysis of proposed changes to social welfare policies...
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                                    alt="Author" class="w-10 h-10 object-cover rounded-full border-2 border-red-800">
+                                <div>
+                                    <h4 class="font-semibold text-sm">Dr. Elena Rodriguez</h4>
+                                    <p class="text-gray-500 text-xs">Social Policy Researcher</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-gray-500">Mar 10, 2024</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- View More Button -->
+            <div class="text-center mt-12">
+                <button
+                    class="bg-red-800 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors inline-flex items-center gap-2 group">
+                    View More Opinions
+                    <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Import your existing footer here -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white mt-12">
+        <div class="container mx-auto px-4">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+                <!-- Column 1: About Politics Section -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Politics Coverage</h4>
+                    <p class="text-gray-400">Delivering comprehensive political news coverage and analysis from local to
+                        international affairs.</p>
+                    <div class="flex items-center gap-4 text-sm">
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-newspaper text-red-800"></i>
+                            Daily Updates
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-globe text-red-800"></i>
+                            Global Coverage
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#featured" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Latest Political News
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#election-coverage" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Election Coverage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#analysis" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Political Analysis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#opinion" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Expert Opinions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Political Resources -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-file-alt text-red-800"></i>
+                                Political Fact Checks
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-calendar-alt text-red-800"></i>
+                                Electoral Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-book text-red-800"></i>
+                                Policy Documents
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-chart-bar text-red-800"></i>
+                                Political Polls
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Political Updates</h4>
+                    <p class="text-gray-400">Subscribe to our politics newsletter for daily updates.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Your email address"
+                            class="w-full bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors">
+                        <button class="w-full bg-red-800 hover:bg-red-700 text-white py-2 rounded-lg transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="border-t border-gray-800 py-8">
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+                <p>© 2024 The Telegram - Politics Section. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Political Coverage Guidelines</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

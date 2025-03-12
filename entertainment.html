@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entertainment news and updates - The Telegram">
+    <title>Entertainment - The Telegram</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body style="font-family: Playfair Display, serif;">
+    <!-- Import your existing navbar here -->
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Main Nav -->
+            <div class="hidden md:flex justify-between items-center h-16">
+                <div data-aos="fade-right" data-aos-duration="1500"
+                    class="text-gray-800 text-xl font-bold tracking-tight">
+                    <a class="hover:text-red-800 transition-colors duration-300" href="index.html">
+                        The Telegram
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">HOME</a>
+                    <a href="news.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">NEWS</a>
+                    <a href="opinion.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">OPINION</a>
+                    <a href="politics.html" class="text-red-800 font-medium text-sm tracking-wider">POLITICS</a>
+                    <a href="entertainment.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">ENTERTAINMENT</a>
+                    <a href="lifestyle.html"
+                        class="text-gray-600 hover:text-red-800 font-medium text-sm tracking-wider transition-colors duration-300">LIFESTYLE</a>
+                    <button onclick="openSubscribeModal()"
+                        class="bg-red-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Main Nav -->
+            <div class="md:hidden">
+                <div class="flex justify-between items-center h-16">
+                    <a href="index.html" class="text-gray-800 text-lg font-bold">The Telegram</a>
+                    <button id="main-menu-btn" class="text-gray-800 hover:text-red-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Main Menu -->
+                <div id="main-menu" class="hidden pb-4">
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">HOME</a>
+                        <a href="news.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">NEWS</a>
+                        <a href="opinion.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">OPINION</a>
+                        <a href="politics.html" class="px-4 py-2 bg-red-50 text-red-800 rounded">POLITICS</a>
+                        <a href="entertainment.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">ENTERTAINMENT</a>
+                        <a href="lifestyle.html"
+                            class="px-4 py-2 text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">LIFESTYLE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        // Main menu toggle
+        const mainMenuBtn = document.getElementById('main-menu-btn');
+        const mainMenu = document.getElementById('main-menu');
+
+        mainMenuBtn.addEventListener('click', () => {
+            mainMenu.classList.toggle('hidden');
+        });
+
+        // Section menu toggle
+        const sectionMenuBtn = document.getElementById('section-menu-btn');
+        const sectionMenu = document.getElementById('section-menu');
+
+        sectionMenuBtn.addEventListener('click', () => {
+            sectionMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for section links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const yOffset = -120; // Adjust for fixed headers
+                const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+
+                // Close mobile menus when clicking a section link
+                mainMenu.classList.add('hidden');
+                sectionMenu.classList.add('hidden');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let scrollPosition = window.scrollY + 122; // Adjust for fixed headers
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionLink = document.querySelector(`a[href="#${section.id}"]`);
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    sectionLink?.classList.add('text-red-800');
+                } else {
+                    sectionLink?.classList.remove('text-red-800');
+                }
+            });
+        });
+    </script>
+
+    <!-- Entertainment Section Navigation -->
+    <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+        <div class="container mx-auto px-4">
+            <!-- Desktop Section Nav -->
+            <div class="hidden md:flex justify-center space-x-8 py-4">
+                <a href="#trending"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Trending</a>
+                <a href="#movies"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Movies</a>
+                <a href="#music"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Music</a>
+                <a href="#tv-shows" class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">TV
+                    Shows</a>
+                <a href="#celebrities"
+                    class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Celebrities</a>
+            </div>
+
+            <!-- Mobile Section Nav (Dropdown) -->
+            <!-- Section Navigation -->
+            <nav class="bg-gray-50 shadow-sm sticky top-16 z-40">
+                <div class="container mx-auto px-4">
+                    <!-- Desktop Section Nav -->
+                    <div class="hidden md:flex justify-center space-x-8 py-4">
+                        <a href="#featured"
+                            class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Featured</a>
+                        <a href="#latest"
+                            class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Latest
+                            Updates</a>
+                        <a href="#categories"
+                            class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Categories</a>
+                        <a href="#opinion"
+                            class="text-sm font-medium text-gray-600 hover:text-red-800 transition-colors">Opinion</a>
+                    </div>
+
+                    <!-- Mobile Section Nav -->
+                    <div class="md:hidden relative py-3">
+                        <button id="section-menu-btn"
+                            class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-600">
+                            <span>Navigate Sections</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Mobile Section Menu -->
+                        <div id="section-menu"
+                            class="hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg">
+                            <div class="flex flex-col p-2">
+                                <a href="#featured"
+                                    class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Featured</a>
+                                <a href="#latest"
+                                    class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Latest
+                                    Updates</a>
+                                <a href="#categories"
+                                    class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Categories</a>
+                                <a href="#opinion"
+                                    class="px-4 py-2 text-sm text-gray-600 hover:text-red-800 hover:bg-gray-50 rounded">Opinion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Entertainment Header -->
+    <header class="bg-gradient-to-r from-purple-900 to-red-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-red-800 opacity-5 pattern-grid-lg"></div>
+
+        <div class="container mx-auto px-4 py-16 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <span data-aos="fade-down" class="text-red-400 text-sm font-semibold tracking-wider">ENTERTAINMENT
+                    ZONE</span>
+                <h1 data-aos="fade-up" class="text-5xl md:text-6xl font-bold mt-4 mb-6">Lights, Camera, Action!</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-gray-300">
+                    Your daily dose of entertainment news, celebrity updates, and cultural highlights
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trending Section -->
+    <section id="trending" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Featured Story -->
+                <div data-aos="fade-up" class="lg:col-span-2">
+                    <article
+                        class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-500">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1586899028174-e7098604235b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                alt="Entertainment News" class="w-full h-[400px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 p-6 text-white">
+                                <span class="bg-red-800 text-white px-3 py-1 rounded-full text-sm">TRENDING</span>
+                                <h2 class="text-3xl font-bold mt-4">Awards Season: Complete Coverage</h2>
+                                <p class="text-gray-200 mt-2">Red carpet moments, winners, and behind-the-scenes...</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar Updates -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold border-l-4 border-red-800 pl-4">Latest Updates</h3>
+
+                    <!-- Update Card -->
+                    <div data-aos="fade-left" class="group">
+                        <article
+                            class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-red-800">
+                            <span class="text-red-800 text-sm font-semibold">MOVIES</span>
+                            <h3 class="font-bold mt-2 group-hover:text-red-800 transition-colors">Box Office: Weekend
+                                Winners</h3>
+                            <p class="text-gray-600 text-sm mt-2">Latest blockbuster breaks records...</p>
+                            <div class="flex items-center justify-between mt-4 text-sm text-gray-500">
+                                <span>1 hour ago</span>
+                                <span class="flex items-center gap-2">
+                                    <i class="far fa-eye"></i>
+                                    3.5k views
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Add more update cards -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="bg-gray-50 py-16">
+        <!-- Add more entertainment categories -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Existing Movies and Music categories -->
+
+            <!-- TV Shows -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-tv text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">TV Shows</h3>
+                <p class="text-sm text-gray-600 mt-2">Series updates and streaming</p>
+            </a>
+
+            <!-- Celebrities -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-star text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">Celebrities</h3>
+                <p class="text-sm text-gray-600 mt-2">Star news and gossip</p>
+            </a>
+
+            <!-- Gaming -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-gamepad text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">Gaming</h3>
+                <p class="text-sm text-gray-600 mt-2">Gaming news and reviews</p>
+            </a>
+
+            <!-- Theater -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-theater-masks text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">Theater</h3>
+                <p class="text-sm text-gray-600 mt-2">Stage and performing arts</p>
+            </a>
+
+            <!-- Streaming -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-stream text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">Streaming</h3>
+                <p class="text-sm text-gray-600 mt-2">What to watch now</p>
+            </a>
+
+            <!-- Events -->
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all text-center group">
+                <i class="fas fa-calendar-star text-3xl text-red-800 mb-4"></i>
+                <h3 class="font-bold group-hover:text-red-800 transition-colors">Events</h3>
+                <p class="text-sm text-gray-600 mt-2">Entertainment events</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-gradient-to-b from-white to-gray-50">
+        <!-- Add review cards similar to opinion section in politics page -->
+    </section>
+
+    <!-- Entertainment-focused Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white mt-12">
+        <div class="container mx-auto px-4">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+                <!-- Column 1: About Entertainment -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Entertainment Coverage</h4>
+                    <p class="text-gray-400">Your source for the latest in movies, TV, music, and celebrity news.</p>
+                    <div class="flex items-center gap-4 text-sm">
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-video text-red-800"></i>
+                            24/7 Updates
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="fas fa-star text-red-800"></i>
+                            Exclusive Content
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#trending" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Trending Now
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#movies" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Movie Reviews
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tv-shows" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                TV & Streaming
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#music" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-angle-right text-red-800"></i>
+                                Music Charts
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Entertainment Resources -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-ticket-alt text-red-800"></i>
+                                Event Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-chart-line text-red-800"></i>
+                                Box Office Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white flex items-center gap-2">
+                                <i class="fas fa-podcast text-red-800"></i>
+                                Entertainment Podcasts
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="space-y-4">
+                    <h4 class="text-xl font-bold border-l-4 border-red-800 pl-4">Stay Updated</h4>
+                    <p class="text-gray-400">Get the latest entertainment news delivered to your inbox.</p>
+                    <form class="space-y-2">
+                        <input type="email" placeholder="Your email address"
+                            class="w-full bg-white/10 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-red-800 transition-colors text-white">
+                        <button class="w-full bg-red-800 hover:bg-red-700 text-white py-2 rounded-lg transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+                <p>© 2024 The Telegram - Entertainment Section. All rights reserved.</p>
+                <div class="mt-2 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Entertainment Guidelines</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        // Add your navigation toggle scripts here
+    </script>
+</body>
+
+</html>
